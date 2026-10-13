@@ -1,5 +1,13 @@
+import router from "#api/employees";
 import express from "express";
 const app = express();
 export default app;
 
-// TODO: this file!
+app.use(express.json());
+
+app.route("/").get((req, res) => {
+    res.send("Welcome to the Fullstack Employees API.")
+});
+
+app.use("/employees", router);
+
